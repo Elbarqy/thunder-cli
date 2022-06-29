@@ -24,6 +24,12 @@ const flags = {
 		alias: `v`,
 		desc: `Print CLI version`
 	},
+	withHandlers: {
+		type: 'boolean',
+		alias: 'h',
+		desc: 'generate entity with no handlers',
+		default: true
+	}
 };
 
 const commands = {

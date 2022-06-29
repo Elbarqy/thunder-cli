@@ -1,9 +1,10 @@
-import { generator } from "../utils/core/generator";
+import { EntityType } from './../utils/constants/enums';
+import { generator } from '../utils/core/generator';
 
 const fs = require('fs');
 
 const initStructure = {
-	test: {
+	src: {
 		query: {},
 		saga: {},
 		command: {},
