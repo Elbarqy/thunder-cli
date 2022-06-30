@@ -9,7 +9,7 @@ export const generateFileParams = (
 	let params = {};
 	params[entityType] = {
 		handlers: {
-			files: [{ entityType: EntityType.index }],
+			files: [{ entityType: EntityType.index, type: entityType }],
 			[entityName]: {
 				files: [
 					{ entityType: EntityType.index },

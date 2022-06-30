@@ -8,7 +8,10 @@ const initStructure = {
 		query: {},
 		saga: {},
 		command: {},
-		event: {}
+		event: {},
+		shared: {
+			files: [{ entityType: EntityType.index, type: 'shared' }]
+		}
 	}
 };
 

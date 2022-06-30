@@ -18,7 +18,6 @@ import { CREATION_OPTIONS } from './utils/constants/enums';
 	init({ clear });
 	input.includes(`help`) && cli.showHelp(0);
 	if (input.length > 0) {
-		console.log('EVENT DRIVEN ARCHTICTURE');
 		switch (input[0]) {
 			case 'init':
 				initProject();

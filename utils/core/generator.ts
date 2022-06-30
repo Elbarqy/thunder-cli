@@ -16,12 +16,12 @@ export const generator = (
 			const path = `./${parent != '' ? parent + '/' : ''}`;
 			structure[item].map(
 				(file: {
-					type?: EntityType;
+					type: EntityType;
 					entityName?: string;
 					entityType: EntityType;
 				}) => {
 					if (file.entityType === EntityType.index) {
-						fs.appendFile(path + 'index.ts', '', () => {});
+						fs.appendFile(`${path}${file.type}.module.ts`, '', () => {});
 					} else {
 						fs.appendFile(
 							`${path}${file.entityName}.${file.type}.ts`,
