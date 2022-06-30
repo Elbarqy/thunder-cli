@@ -12,7 +12,8 @@ const input = cli.input;
 const flags = cli.flags;
 const { clear, debug } = flags;
 import { initProject } from './generator/initProject';
-import { commandGenerator } from './generator/command.generate';
+import { entityGenerator } from './generator/command.generate';
+import { CREATION_OPTIONS } from './utils/constants/enums';
 (async () => {
 	init({ clear });
 	input.includes(`help`) && cli.showHelp(0);
@@ -22,13 +23,16 @@ import { commandGenerator } from './generator/command.generate';
 			case 'init':
 				initProject();
 				break;
-			case 'command':
-				if(input.length < 2)
-					throw new Error("Missing command name")
-				commandGenerator(input[1],flags.withHandler)
-				break;
 			default:
-				console.log('type help to display options');
+				if (input.length < 2) throw new Error('Missing command name');
+				console.log(input);
+				if (CREATION_OPTIONS.includes(input[0])) {
+					entityGenerator(input[1], input[0], flags.withHandler);
+				} else {
+					throw new Error(
+						'No such command is found, type help for more info'
+					);
+				}
 				break;
 		}
 	}

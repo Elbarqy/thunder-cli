@@ -6,3 +6,5 @@ export enum EntityType {
 	index = 'index',
 	handler = 'handler'
 }
+
+export const CREATION_OPTIONS = ['event', 'command', 'saga', 'query'];

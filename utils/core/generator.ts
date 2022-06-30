@@ -13,7 +13,24 @@ export const generator = (
 			}
 			generator(parent + '/' + item, structure[item]);
 		} else {
-			console.log(structure[item]);
+			const path = `./${parent != '' ? parent + '/' : ''}`;
+			structure[item].map(
+				(file: {
+					type?: EntityType;
+					entityName?: string;
+					entityType: EntityType;
+				}) => {
+					if (file.entityType === EntityType.index) {
+						fs.appendFile(path + 'index.ts', '', () => {});
+					} else {
+						fs.appendFile(
+							`${path}${file.entityName}.${file.type}.ts`,
+							'',
+							() => {}
+						);
+					}
+				}
+			);
 		}
 	});
 };

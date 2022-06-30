@@ -9,25 +9,36 @@ export const generateFileParams = (
 	let params = {};
 	params[entityType] = {
 		handlers: {
-			files: [
-				{ entityType: EntityType.index },
-				{
-					type: EntityType.handler,
-					entityType: entityType,
-					entityName
-				}
-			]
+			files: [{ entityType: EntityType.index }],
+			[entityName]: {
+				files: [
+					{ entityType: EntityType.index },
+					...generateCrud(entityName, entityType, EntityType.handler)
+				]
+			}
 		}
 	};
 	params[entityType][entityType + 's'] = {
-		files: [
-			{ entityType: EntityType.index },
-			{
-				type: entityType,
-				entityType: entityType,
-				entityName
-			}
-		]
+		files: [{ entityType: EntityType.index }],
+		[entityName]: {
+			files: [
+				{ entityType: EntityType.index },
+				...generateCrud(entityName, entityType, entityType)
+			]
+		}
 	};
 	return params;
+};
+
+const generateCrud = (entityName, entityType, type) => {
+	const crud = ['create', 'read', 'remove', 'update'];
+	let files = [];
+	crud.map(event => {
+		files.push({
+			type: type,
+			entityType: entityType,
+			entityName: event + entityName
+		});
+	});
+	return files;
 };
