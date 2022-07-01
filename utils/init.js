@@ -5,7 +5,7 @@ const unhandled = require('cli-handle-unhandled');
 module.exports = ({ clear = true }) => {
 	unhandled();
 	welcome({
-		title: `thunder-cli`,
+		title: `booter-cli`,
 		tagLine: `by Elbarqy`,
 		description: pkg.description,
 		version: pkg.version,

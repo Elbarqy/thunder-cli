@@ -1,11 +1,14 @@
 #!/usr/bin/env node
+// ./cli.js
 
 /**
- * thunder-cli
+ * booter-cli
  * Get available options in the cli
  *
  * @author Elbarqy <https://linkedin.com/in/elbarqy/>
  */
+
+//@ts-
 const cli = require('./utils/cli');
 const init = require('./utils/init');
 const input = cli.input;

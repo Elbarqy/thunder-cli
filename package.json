@@ -1,11 +1,11 @@
 {
-	"name": "thunder-cli",
+	"name": "booter-cli",
 	"description": "Boostraping your application",
 	"version": "0.0.1",
 	"license": "UNLICENSED",
 	"bin": {
-		"thunder-cli": "index.js",
-		"help": "index.js"
+		"booter-cli": "bin/index.js",
+		"help": "bin/index.js"
 	},
 	"author": {
 		"name": "Elbarqy",
@@ -13,7 +13,7 @@
 		"url": "http://linkedin.com/in/elbarqy/"
 	},
 	"keywords": [
-		"thunder-cli",
+		"booter-cli",
 		"Elbarqy"
 	],
 	"files": [
@@ -21,7 +21,9 @@
 		"utils"
 	],
 	"scripts": {
-		"format": "prettier --write \"./**/*.{js,json}\""
+		"format": "prettier --write \"./**/*.{js,json}\"",
+		"build": "tsc --build",
+		"clean": "tsc --build --clean"
 	},
 	"dependencies": {
 		"chalk": "^4.1.2",
