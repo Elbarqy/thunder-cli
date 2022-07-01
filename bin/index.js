@@ -11,7 +11,11 @@ if (argv._.length > 0) {
 		default:
 			if (argv._.length < 2) throw new Error('Missing command name');
 			if (Array.from(CREATION_OPTIONS).includes(argv._[0])) {
-				entityGenerator(argv._[1], argv._[0], true);
+				entityGenerator(
+					argv._[1][0].toUpperCase() + argv._[1].slice(1),
+					argv._[0],
+					true
+				);
 				console.log('done');
 			} else {
 				throw new Error(
